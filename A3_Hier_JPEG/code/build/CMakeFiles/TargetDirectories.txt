@@ -1,0 +1,3 @@
+/home/cmpt365/assignments/A3_Hier_JPEG/code/build/CMakeFiles/rebuild_cache.dir
+/home/cmpt365/assignments/A3_Hier_JPEG/code/build/CMakeFiles/jhier.dir
+/home/cmpt365/assignments/A3_Hier_JPEG/code/build/CMakeFiles/edit_cache.dir
