@@ -144,9 +144,9 @@ EncoderDecoder::encode(DCT *dct, Quantizer *quantizer, ZigZagScanner *scanner, s
 
         // TODO Apply DPCM for DC components
         // DPCM
-        float dc = 0; // modify this
-        float dc_diff = 0; // modify this
-        old_dc = 0; // modify this
+        float dc = scanner_output[0][0]; // modify this
+        float dc_diff = dc - old_dc; // modify this
+        old_dc = dc; // modify this
 
         // RLC
         std::vector<float> acs;

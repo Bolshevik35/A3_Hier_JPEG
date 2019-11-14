@@ -35,12 +35,32 @@ std::vector<float> *ZigZagScanner::scan(cv::Mat &input) {
         }
         x++;
     }
-
+    while (x < 7){
+        while (x < 7){
+            output->push_back(input.at<float>(x,y));
+            y--;
+            x++;
+        }
+        output->push_back(input.at<float>(x,y));
+        if (x == 7 && y == 6)
+            break;
+        y++;
+        int temp = y;
+        while (x > temp){
+            output->push_back(input.at<float>(x,y));
+            x--;
+            y++;
+        }
+        output->push_back(input.at<float>(x,y));
+        x++;
+    }
+    output->push_back(input.at<float>(x,y+1));
+    
     // for (int i =0; i < output->size(); i++)
     //     std::cout << output->at(i) << "\t";
-    std::cout << output->size() << std::endl;
-    std::cout << x << std::endl;
-    std::cout << y << std::endl;
+    // std::cout << output->size() << std::endl;
+    // std::cout << x << std::endl;
+    // std::cout << y << std::endl;
     return output;
 }
 
@@ -49,6 +69,6 @@ cv::Mat *ZigZagScanner::descan(const std::vector<float> &input) {
     float *output_ptr = (float *) output->data;
     // TODO Perform the opposite of a Zigzag Scan
     //  Map the input vector to an 8x8 matrix, and store the result in output
-
+    
     return output;
 }

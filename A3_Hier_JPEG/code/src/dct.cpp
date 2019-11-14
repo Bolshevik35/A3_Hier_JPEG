@@ -8,9 +8,21 @@ DCT::DCT() {
     float *dct_ptr = (float *) _dct_mat->data;
 
     // TODO Calculate the 8x8 Matrix to be used for DCT and IDCT
-    
+    float firstRowVal = 1/sqrt(8);
+    for (int i=0; i < 8; i++)
+        _dct_mat->at<float>(0,i) = firstRowVal;
+    for (int i =1; i < 8; i++){
+        for (int j = 0; j < 8; j++){
+            _dct_mat->at<float>(i,j) = sqrt(2/8)* cos(PI*(2*j + 1)*i / (2*8));
+        }
+    }
 
     // TODO transpose _dct_mat and store the result in _dct_mat_t
+    for (int i = 0; i < 8; i++){
+        for (int j =0; j < 8; j++){
+            _dct_mat_t->at<float>(i,j) = _dct_mat->at<float>(j,i);
+        }
+    }
 }
 
 DCT::~DCT() {
