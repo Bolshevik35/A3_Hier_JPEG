@@ -191,6 +191,10 @@ tuple
 -
 cmath
 -
+unordered_map
+-
+utility
+-
 opencv2/imgproc/imgproc.hpp
 /home/cmpt365/assignments/A3_Hier_JPEG/code/src/opencv2/imgproc/imgproc.hpp
 opencv2/highgui/highgui.hpp

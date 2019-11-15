@@ -6,6 +6,8 @@
 #include <map>
 #include <tuple>
 #include <cmath>
+#include <unordered_map>
+#include <utility>
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
 

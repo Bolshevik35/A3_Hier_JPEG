@@ -211,9 +211,9 @@ EncoderDecoder::decode(DCT *dct, Quantizer *quantizer, ZigZagScanner *scanner, s
 
             // TODO Get the DC components of this block
             if (is_dc) {
-                cnt = ac + cnt; // modify this
-                prev_dc = cnt; // modify this
-                is_dc = false;
+                ac = ac + prev_dc; // modify this
+                prev_dc = ac; // modify this
+                is_dc = true;
             }
             for (int i = 0; i < cnt; i++) {
                 decoded_vector.push_back(ac);
