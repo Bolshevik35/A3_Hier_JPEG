@@ -23,7 +23,7 @@ int zig_zag_value(int i, int j){
 std::vector<float> *ZigZagScanner::scan(cv::Mat &input) {
     std::vector<float> *output = new std::vector<float>();
     // TODO Traverse the input in a zigzag scan, and store the result in output
-    std::unordered_map<int, std::pair<int,int>> mymap; 
+    /*std::unordered_map<int, std::pair<int,int>> mymap; 
     for (int i = 0; i < 8; i++){
         for (int j = 0; j < 8; j++){
             std::pair<int,int> temp (i,j);
@@ -33,7 +33,7 @@ std::vector<float> *ZigZagScanner::scan(cv::Mat &input) {
     for (int i =0; i < 64; i++){
         std::pair<int,int> temp = mymap.at(i);
         output->push_back(input.at<float>(temp.first, temp.second));
-    } 
+    } */
     return output;
 }
 
@@ -42,7 +42,7 @@ cv::Mat *ZigZagScanner::descan(const std::vector<float> &input) {
     float *output_ptr = (float *) output->data;
     // TODO Perform the opposite of a Zigzag Scan
     //  Map the input vector to an 8x8 matrix, and store the result in output
-    std::unordered_map<int, std::pair<int,int>> mymap; 
+    /*std::unordered_map<int, std::pair<int,int>> mymap; 
     for (int i = 0; i < 8; i++){
         for (int j = 0; j < 8; j++){
             std::pair<int,int> temp (i,j);
@@ -52,6 +52,6 @@ cv::Mat *ZigZagScanner::descan(const std::vector<float> &input) {
     for (int i =0; i < 64; i++){
         std::pair<int,int> temp = mymap.at(i);
         output->at<float>(temp.first, temp.second) = input[i];
-    }
+    }*/
     return output;
 }

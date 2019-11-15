@@ -213,7 +213,7 @@ EncoderDecoder::decode(DCT *dct, Quantizer *quantizer, ZigZagScanner *scanner, s
             if (is_dc) {
                 ac = ac + prev_dc; // modify this
                 prev_dc = ac; // modify this
-                is_dc = true;
+                is_dc = false;
             }
             for (int i = 0; i < cnt; i++) {
                 decoded_vector.push_back(ac);

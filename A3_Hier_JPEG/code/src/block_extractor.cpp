@@ -33,16 +33,14 @@ void BlockExtractor::extract_blocks(const cv::Mat &mat) {
     // TODO Extract 8x8 blocks from mat, and push every block to _block_vector
     for (int i =0; i < _per_row; i++){
         for (int j = 0; j < _per_col; j++){
-            float subMatrix[64];
-            int index = 0;
-            for (int x = 0; x<8; x++){
+            cv::Mat *block = new cv::Mat(8,8,CV_32FC1);
+            for (int x = 0; x< 8; x++){
                 for (int y = 0; y < 8; y++){
-                    subMatrix[index] = mat.at<float>(i*8 + x, j*8 + y);
-                    index++;
+                    block->at<float>(x,y) = mat.at<float>(i*8 + x, j*8 + y);
                 }
             }
-            cv::Mat block = cv::Mat(8,8, CV_32FC1, subMatrix);
-            _block_vector->push_back(&block);
+            //cv::Mat block = cv::Mat(8,8, CV_32FC1, subMatrix);
+            _block_vector->push_back(block);
         }
     }
 }
